@@ -58,6 +58,9 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "urxvt", NULL };
+static const char *suspendcmd[] = { "urxvt", "-e", "sudo", "systemctl", "suspend", NULL };
+static const char *poweroffcmd[] = { "urxvt", "-e", "sudo", "systemctl", "poweroff", NULL };
+static const char *rebootcmd[] = { "urxvt", "-e", "sudo", "systemctl", "reboot", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -94,6 +97,9 @@ static Key keys[] = {
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
+	{ MODKEY|ShiftMask,             XK_p,      spawn,          {.v = suspendcmd } },
+	{ MODKEY|ShiftMask,             XK_s,      spawn,          {.v = poweroffcmd } },
+	{ MODKEY|ShiftMask,             XK_r,      spawn,          {.v = rebootcmd } },
 };
 
 /* button definitions */
