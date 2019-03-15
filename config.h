@@ -61,6 +61,7 @@ static const char *termcmd[]  = { "urxvt", NULL };
 static const char *suspendcmd[] = { "urxvt", "-e", "sudo", "systemctl", "suspend", NULL };
 static const char *poweroffcmd[] = { "urxvt", "-e", "sudo", "systemctl", "poweroff", NULL };
 static const char *rebootcmd[] = { "urxvt", "-e", "sudo", "systemctl", "reboot", NULL };
+static const char *slockcmd[]  = { "slock", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -100,6 +101,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_p,      spawn,          {.v = suspendcmd } },
 	{ MODKEY|ShiftMask,             XK_s,      spawn,          {.v = poweroffcmd } },
 	{ MODKEY|ShiftMask,             XK_r,      spawn,          {.v = rebootcmd } },
+	{ MODKEY|ShiftMask,             XK_l,      spawn,          {.v = slockcmd } },
 };
 
 /* button definitions */
